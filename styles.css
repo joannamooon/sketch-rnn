@@ -1,0 +1,225 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poetsen One', sans-serif;
+    overflow: hidden;
+    background-color: #f4f4f9;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    --primary: #f2afdc;
+    --secondary: #ff00bf;
+  }
+  
+  
+  h1 {
+    color: var(--primary);
+    font-size: 48px;
+    margin: 16px 0;
+  }
+  
+  p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin: 12px 0;
+  }
+  
+  a:link, a:visited {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+  
+  header {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  #splash {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: opacity 0.5s ease, visibility 0.5s;
+    visibility: visible;
+    opacity: 1;
+    z-index: 20;
+  }
+  
+  #splash.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  #splash .content {
+    background-color: #1a8be8;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  #btnGo {
+    background: var(--secondary);
+    border: none;
+    color: white;
+    padding: 14px 24px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  #btnGo:hover {
+    background: darken(var(--secondary), 10%);
+  }
+  
+  #loaded {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #loaded.hidden {
+    display: none;
+  }
+  
+  header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  header .controls .box {
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    margin: 0 8px;
+    cursor: pointer;
+    padding: 8px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  header .controls .box:hover {
+    background: var(--primary);
+    color: white;
+  }
+  
+  header .controls .box svg {
+    fill: currentColor;
+  }
+  
+  #colorsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  #colorsContainer button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  
+  #colorsContainer button:hover {
+    transform: scale(1.2);
+  }
+  
+  #colorsContainer button.active {
+    border-color: var(--primary);
+  }
+  
+  .select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .select-wrapper select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: var(--primary);
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .select-wrapper svg {
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+  }
+  
+  #sketch {
+    flex-grow: 1;
+    width: 100%;
+    height: calc(100% - 84px);
+  }
+  
+  #sketch.loading {
+    pointer-events: none;
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 32px;
+    }
+  
+    p {
+      font-size: 16px;
+    }
+  
+    #btnGo {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  
+    header .wrapper {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    header .controls {
+      justify-content: space-around;
+      width: 100%;
+    }
+  
+    .select-wrapper {
+      width: 100%;
+    }
+  
+    .select-wrapper select {
+      width: calc(100% - 20px);
+    }
+  }
+  
